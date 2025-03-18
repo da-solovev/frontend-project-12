@@ -18,7 +18,9 @@
   "homepage": "https://github.com/da-solovev/frontend-project-12#readme",
   "dependencies": {
     "@hexlet/chat-server": "^2.0.4",
+    "@reduxjs/toolkit": "^2.6.1",
     "formik": "^2.4.6",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.3.0"
   }
 }

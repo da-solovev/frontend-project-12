@@ -1,4 +1,6 @@
 import { useFormik } from "formik";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../store/slices/authSlice"; 
 
 const AuthPage = () => {
   const formik = useFormik({
@@ -10,6 +12,9 @@ const AuthPage = () => {
       alert(JSON.stringify(values, null, 2));
     },
   });
+
+  const dispatch = useDispatch();
+
   return (
     <form onSubmit={formik.handleSubmit}>
       <input
