@@ -1,6 +1,6 @@
-import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
-import { setCredentials } from "../store/slices/authSlice"; 
+import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { setCredentials } from '../store/slices/authSlice';
 
 const AuthPage = () => {
   const formik = useFormik({
@@ -8,7 +8,7 @@ const AuthPage = () => {
       username: '',
       password: '',
     },
-    onSubmit: values => {
+    onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },
   });
@@ -31,10 +31,10 @@ const AuthPage = () => {
         onChange={formik.handleChange}
         value={formik.values.password}
       />
-
+      {/* onClick={() => dispatch(setCredentials({user: 'vasya', token: '123'}))} */}
       <button type="submit">Войти</button>
     </form>
   );
-}
+};
 
 export default AuthPage;
