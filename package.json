@@ -4,23 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build --prefix frontend",
+    "start": "start-server -s ./frontend/dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd frontend && npm ci"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/da-solovev/frontend-project-12.git"
-  },
-  "author": "da-solovev",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/da-solovev/frontend-project-12/issues"
-  },
-  "homepage": "https://github.com/da-solovev/frontend-project-12#readme",
   "dependencies": {
-    "@hexlet/chat-server": "^2.0.4",
-    "@reduxjs/toolkit": "^2.6.1",
-    "formik": "^2.4.6",
-    "react-redux": "^9.2.0",
-    "react-router-dom": "^7.3.0"
+    "@hexlet/chat-server": "^1.1.6"
   }
 }
