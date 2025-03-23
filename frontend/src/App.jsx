@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AuthPage from './components/AuthPage.jsx';
-import NotFoundPage from './components/NotFoundPage.jsx';
+import AuthPage from './pages/AuthPage.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
+import MainPage from './pages/MainPage.jsx';
 
 const App = () => (
   <BrowserRouter>
     <Routes>
       <Route path="login" element={<AuthPage />} />
-      {/* путь для корня / , продумать переадресацию */}
-      <Route path="" element={<AuthPage />} />
+      <Route path="" element={<MainPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </BrowserRouter>

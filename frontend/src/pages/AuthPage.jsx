@@ -1,19 +1,31 @@
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import routes from '../routes.js';
 import { setCredentials } from '../store/slices/authSlice';
 
 const AuthPage = () => {
+  const dispatch = useDispatch();
+  const navigation = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       username: '',
       password: '',
     },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        const response = await axios.post(routes.login, values);
+        dispatch(setCredentials(response.data));
+        navigation('/', { replace: true });
+      } catch (error) {
+        console.error('Error login:', error);
+      } finally {
+        setSubmitting(false);
+      }
     },
   });
-
-  const dispatch = useDispatch();
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -31,8 +43,11 @@ const AuthPage = () => {
         onChange={formik.handleChange}
         value={formik.values.password}
       />
-      {/* onClick={() => dispatch(setCredentials({user: 'vasya', token: '123'}))} */}
-      <button type="submit">Войти</button>
+      <button
+        type="submit"
+      >
+        Войти
+      </button>
     </form>
   );
 };
