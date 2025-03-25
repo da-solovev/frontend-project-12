@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ChannelsList from '../components/ChannelsList';
 
 const MainPage = () => {
   const navigation = useNavigate();
@@ -12,7 +13,9 @@ const MainPage = () => {
   });
 
   return (
-    <div>main</div>
+    <div>
+      <ChannelsList />
+    </div>
   );
 };
 
