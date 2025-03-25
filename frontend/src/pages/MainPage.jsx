@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ChannelsList from '../components/channels/ChannelsList';
+import MessagesList from '../components/messages/MessagesList';
 
 const MainPage = () => {
   const navigation = useNavigate();
@@ -9,10 +11,13 @@ const MainPage = () => {
     if (!isAuthorized) {
       navigation('/login', { replace: true });
     }
-  });
+  }, []);
 
   return (
-    <div>main</div>
+    <div>
+      <ChannelsList />
+      <MessagesList />
+    </div>
   );
 };
 
