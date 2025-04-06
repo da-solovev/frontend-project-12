@@ -2,6 +2,13 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  build: {
+    minify: false,
+    sourcemap: true,
+    rollupOptions: {
+      preserveEntrySignatures: 'strict',
+    },
+  },
   plugins: [react()],
   server: {
     port: 5003,

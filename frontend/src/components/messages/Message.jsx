@@ -1,12 +1,12 @@
-const Message = (props) => (
+const Message = ({ text, username }) => (
   <>
     <div>
       Сообщение:
-      {props.text}
+      {text}
     </div>
     <div>
       Автор:
-      {props.username}
+      {username}
     </div>
   </>
 );
